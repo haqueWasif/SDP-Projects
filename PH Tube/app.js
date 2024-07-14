@@ -1,22 +1,21 @@
 
-category_list = [];
+var category_select = null;
+
+const delay = (ms) => new Promise( (res) => setTimeout(res, ms));
 
 loadCategory = async(category) => {
     clicked = document.getElementById(category);
 
-    if(category_list.length > 0) {
-        category_list.forEach(element => {
-            element.classList.remove("bg-danger");
-            element.classList.remove("text-light");
-        });
-        category_list.pop();
+    if(category_select != null) {
+        category_select.classList.remove("bg-danger");
+        category_select.classList.remove("text-light");
     }
-    
+
+    await delay(10);
+
     clicked.classList.add("bg-danger");
     clicked.classList.add("text-light");
-    category_list.push(clicked);
-
-
+    category_select = clicked;
 
     const response1 = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data1 = await response1.json();
@@ -30,7 +29,7 @@ loadCategory = async(category) => {
 
 }
 
-displayCard = (data) => {
+displayCard = async(data) => {
     console.log(data);
 
     const cardContainer = document.getElementById("card-tag");
@@ -44,8 +43,19 @@ displayCard = (data) => {
         emptyContainer.removeChild(emptyContainer.firstChild);
     }
 
+    
+    await delay(10);
+
+
     data.forEach(item => {
-        // console.log(item);
+
+        let date = item.others.posted_date;
+        let hours = parseInt(date/3600);
+        let minutes = parseInt ( (date - hours*3600) / 60);
+
+        console.log("hours: ", hours);
+        console.log("minutes: ", minutes);
+        
 
         const card = document.createElement('div');
         card.classList.add("card");
@@ -54,8 +64,9 @@ displayCard = (data) => {
         
         card.innerHTML = `
             <img id="card-img" src="${item.thumbnail}" class="card-img-top" alt="...">
-
-            <div class="card-body d-flex">
+            
+            <div class="card-body d-flex position: relative">
+                <div class="card-time position-absolute d-flex"> ${hours} hours : ${minutes} minutes ago </div>
 
                 <div class="card-profile">
                     <img id="profile-pic" class="rounded-circle" src="${item.authors[0].profile_picture}" alt="">
@@ -71,6 +82,12 @@ displayCard = (data) => {
                 <div class="card-views"> ${item.others.views} views </div>
             </div>
         `
+
+        cardBody = document.getElementById('card-body');
+        if(hours == 0 && minutes == 0){
+            card.childNodes[3].removeChild(card.childNodes[3].childNodes[1]);
+        }
+
         cardContainer.appendChild(card);
     });
 
