@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> PH Tube </title>
+
+    <!-- This is css link  -->
+    <link rel="stylesheet" href="blog.css">
+
+    <!-- This is bootstrap link  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- This is font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="nav-container">
+        <div class="logo">
+            <img src="/resources/logo.png" alt="">
+        </div>
+
+        <div class="home">
+            <a href="index.html" class="btn btn-danger"> Home </a>
+        </div>
+    </nav>
+    
+    <!-- <div class="horizontal-line"></div> -->
+
+
+
+    <div class="collapse-container" >
+        
+        <div class="collapse-section" >
+            <p>
+
+                <button class="btn text-light" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" style="background-color: #161629;">
+                    Discuss the scope of var, let, and const!
+                </button>
+               
+              
+            </p>
+              
+            <div class="collapse" id="collapseExample1">
+                    <div class="card card-body" style=" background-color: #161629;">
+                 
+                    <p> VAR: </p>
+                  
+                    <ul>
+                        <li > 
+                            <span> Scope: </span>
+                            Variables declared with var are only accesible within the function where they are defined. So they are function-scoped.
+                        </li>
+        
+                        <li > 
+                            <span> Hoisting: </span>
+                            Variables declared with var are moved to the top of their scope (but not their initialization) before code execution. They will be initialized with undefined.
+                        </li>
+        
+                    </ul>
+                    
+                    <p> LET: </p>
+          
+                    <ul>
+                        <li > 
+                            <span> Scope: </span>
+                        Variables declared with let are only accesible only within the block where they are defined. So they are block-scoped. A block can be a function, loop or any code enclosed within {}.
+                        </li>
+
+                      <li > 
+                        <span> Hoisting: </span>
+                        Variables declared with let are also moved to the top of their scope (but not their initialization) before code execution. But they will not be initialized so you cannot use them.
+                      </li>
+
+                    </ul>
+
+
+                    <p> CONST: </p>
+          
+                    <ul>
+                        <li > 
+                            <span> Scope: </span>
+                            It is also a block-scoped like let
+                        </li>
+
+                        <li > 
+                            <span> Immutability: </span>
+                        Variables declared with const are meant to be constants so we cannot reassign it's value after initializaton. But for objects and arrays declared with const, we can still modify the properties or elements; but can't reassign the variable itself.
+                       </li>
+
+                    </ul>
+
+
+                    </div>
+
+                    
+            </div>
+            
+        </div> 
+
+
+        <div class="collapse-section" >
+            <p>
+
+                <button class="btn text-light" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2" style="background-color: #161629;">
+                    Tell us the use cases of null and undefined!
+                </button>
+               
+              
+            </p>
+        
+            <div class="collapse" id="collapseExample2">
+                <div class="card card-body" style=" background-color: #161629;">
+                 
+                    <p> NULL: </p>
+                  
+                    <ul>
+                        <li > 
+                            <span> Absence Of Value: </span>
+                            It represents the intentional absence of any object value or value in general.
+                        </li>
+        
+                        <li > 
+                            <span> As a Placeholder: </span>
+                            It is used to indicate that a variable has not been initialized yet.
+                        </li>
+        
+                        <li > 
+                            <span> Returned by Functions: </span>
+                            It is returned by functions when a it did not find a meaningful result.
+                        </li>
+        
+                    </ul>
+                  
+                    <p> UNDEFINED: </p>
+                  
+                    <ul>
+                        <li > 
+                            <span> Default Value: </span>
+                        Variables declared without a value are initialized with the default value of the data type.
+                        </li>
+        
+                      <li > 
+                        <span> Property Access: </span>
+                        Trying to access an object property which does not exists will gives undefined as an output.
+                      </li>
+        
+                      <li > 
+                        <span> Array Elements: </span>
+                        Trying to access an array element beyond the current length of the array this will give undefined as an output.
+                      </li>
+        
+                      <li > 
+                        <span> Function Return: </span>
+                        Functions that do not return a value will return undefined.
+                      </li>
+        
+                    </ul>
+        
+            
+                </div>
+            </div>
+
+        </div>
+        
+    
+        <div class="collapse-section">
+            <p>
+    
+                <button class="btn text-light" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3" style="background-color: #161629;">
+                    What do you mean by REST API ?
+                </button>
+               
+              
+            </p>
+            
+            <div class="collapse" id="collapseExample3">
+                <div class="card card-body" style="background-color: #161629;">
+                 
+                        <p> REST API: </p>
+                  
+                        <p class="text-light">
+                         A REST API is a way for different software applications to communicate over the internet by following a set of rules. These rules are based on the REST architectural style, which ensures that the communication is straightforward and efficient. REST APIs allow programs to send and receive data using simple web addresses, making it easy to request and share information. For example, a client application might ask a server for some data, like a list of users, by sending a request to a specific URL. The server then responds with the requested data, often in a format like JSON. This method of communication helps different programs work together seamlessly over the web, enabling them to share data and functionality easily. 
+                        </p>
+                  
+          
+                </div>
+            </div>
+        </div>        
+    
+    </div>
+
+
+    
+
+
+
+
+    
+
+
+    <!-- This is script  -->
+     <script src="app.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>
